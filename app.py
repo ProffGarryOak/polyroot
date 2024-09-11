@@ -549,7 +549,10 @@ def wordle_solver():
 
         # Provide up to 10 suggestions from filtered words
         suggestions = random.sample(filtered_words, min(10, len(filtered_words)))
-
+        if len(filtered_words)<2:
+            reset_gray_letters()
+       
+        
         return jsonify({'suggestions': suggestions})
 
     # Render initial HTML page
